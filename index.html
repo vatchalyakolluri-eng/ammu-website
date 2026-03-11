@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ammu Game Website</title>
+<title>Ammu Game Zone</title>
+
+<style>
+body{
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    font-family: Arial;
+    text-align:center;
+    padding-top:50px;
+}
+
+.game-box{
+    background:white;
+    color:black;
+    width:300px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 10px 20px rgba(0,0,0,0.3);
+}
+
+button{
+    background:#ff9800;
+    border:none;
+    padding:10px 20px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff5722;
+}
+
+input{
+    padding:8px;
+    margin:10px;
+    border-radius:5px;
+    border:1px solid gray;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>Guess The Number Game</h1>
-<p>Guess a number between 1 and 10</p>
+<h1>🎮 Ammu Game Zone</h1>
+<p>Guess the secret number between 1 and 10</p>
 
-<input type="number" id="guess">
-<button onclick="checkGuess()">Check</button>
+<div class="game-box">
+
+<input type="number" id="guess" placeholder="Enter number">
+
+<br>
+
+<button onclick="checkGuess()">🎯 Check Guess</button>
 
 <p id="result"></p>
 
+</div>
+
 <script>
-let secretNumber = Math.floor(Math.random() * 10) + 1;
 
-function checkGuess() {
-    let userGuess = document.getElementById("guess").value;
+let secretNumber = Math.floor(Math.random()*10)+1;
 
-    if(userGuess == secretNumber){
-        document.getElementById("result").innerHTML = "🎉 Correct!";
-    }
-    else{
-        document.getElementById("result").innerHTML = "❌ Try again!";
-    }
+function checkGuess(){
+
+let guess=document.getElementById("guess").value;
+
+if(guess==secretNumber){
+document.getElementById("result").innerHTML="🎉 Correct! You win!";
 }
+else if(guess>secretNumber){
+document.getElementById("result").innerHTML="📉 Too high! Try again.";
+}
+else{
+document.getElementById("result").innerHTML="📈 Too low! Try again.";
+}
+
+}
+
 </script>
 
 </body>
