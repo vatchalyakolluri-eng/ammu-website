@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ammu Space Blog</title>
+<title>Ammu Game Website</title>
 </head>
 
 <body>
 
-<h1>Ammu's Space Blog</h1>
+<h1>Guess The Number Game</h1>
+<p>Guess a number between 1 and 10</p>
 
-<h2>Day 1 – What is a Black Hole?</h2>
+<input type="number" id="guess">
+<button onclick="checkGuess()">Check</button>
 
-<p>A black hole is a region in space where gravity is extremely strong. 
-Nothing can escape from it, not even light.</p>
+<p id="result"></p>
 
-<p>Black holes form when very massive stars collapse at the end of their life cycle.</p>
+<script>
+let secretNumber = Math.floor(Math.random() * 10) + 1;
 
-<p>Scientists study black holes to understand gravity, time, and the structure of the universe.</p>
+function checkGuess() {
+    let userGuess = document.getElementById("guess").value;
+
+    if(userGuess == secretNumber){
+        document.getElementById("result").innerHTML = "🎉 Correct!";
+    }
+    else{
+        document.getElementById("result").innerHTML = "❌ Try again!";
+    }
+}
+</script>
 
 </body>
 </html>
